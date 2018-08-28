@@ -2,12 +2,18 @@ import React from 'react';
 import SongDetail from './SongDetail.js';
 
 
-class SongList extends React.Component {
-  render(){
+const SongList = (props) => {
+
       // const topSongs = this.props.songs.map((song, index) =>{
       //   return <SongDetail song={song['im:name'].label} key={song.id.attributes['im:id']} artist={song["im:artist"].label } chartPosition = {index}/>
       // })
-      const options = this.props.songs.map((song, index) =>{
+
+      function handleChange(evt){
+        props.onSongSelected(evt.target.value);
+      }
+
+
+      const options = props.songs.map((song, index) =>{
         return <option value = {index} key = {song.id.attributes['im:id']}>
           {song['im:name'].label}</option>
 
@@ -18,6 +24,7 @@ class SongList extends React.Component {
         <select
           id ="song-selector"
           defaultValue ="default"
+          onChange = {handleChange}
         >
           <option disabledValue= 'default'>Select a song...</option>
         {options}
@@ -26,6 +33,6 @@ class SongList extends React.Component {
     )
   }
 
-}
+
 
 export default SongList;

@@ -9,6 +9,7 @@ class SongContainer extends React.Component {
       songs: [],
       selectedSong: null
     }
+    this.handleSongSelected = this.handleSongSelected.bind(this);
   }
   componentDidMount() {
     const url = 'https://itunes.apple.com/gb/rss/topsongs/limit=20/json'
@@ -23,11 +24,25 @@ class SongContainer extends React.Component {
     })
   }
 
+  handleSongSelected(index){
+    const selectedSong = this.state.songs[index];
+    this.setState({
+      selectedSong: selectedSong
+    });
+  }
+
 
   render(){
     return (
       <div>
-       <SongList songs = {this.state.songs}/>
+       <SongList
+         songs = {this.state.songs}
+         onSongSelected = {this.handleSongSelected}
+        />
+        <SongDetail
+          selectedSong = {this.state.selectedSong}
+          
+        />
       </div>
     )
   }
