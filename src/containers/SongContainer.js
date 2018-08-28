@@ -1,6 +1,7 @@
 import React from 'react';
 import SongDetail from '../components/SongDetail.js'
 import SongList from '../components/SongList.js'
+import SongAudio from '../components/SongAudio.js'
 
 class SongContainer extends React.Component {
   constructor(props){
@@ -41,7 +42,9 @@ class SongContainer extends React.Component {
         />
         <SongDetail
           selectedSong = {this.state.selectedSong}
-          
+        />
+        <SongAudio
+          selectedSong = {this.state.selectedSong}
         />
       </div>
     )
