@@ -27,8 +27,7 @@ class SongContainer extends React.Component {
   render(){
     return (
       <div>
-       {/* <SongList/>
-       <SongDetail/> */}
+       <SongList songs = {this.state.songs}/>
       </div>
     )
   }
