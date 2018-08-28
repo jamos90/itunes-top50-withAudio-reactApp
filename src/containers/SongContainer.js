@@ -8,7 +8,8 @@ class SongContainer extends React.Component {
     super(props);
     this.state = {
       songs: [],
-      selectedSong: null
+      selectedSong: null,
+      chartPosition: null
     }
     this.handleSongSelected = this.handleSongSelected.bind(this);
   }
@@ -28,20 +29,23 @@ class SongContainer extends React.Component {
   handleSongSelected(index){
     const selectedSong = this.state.songs[index];
     this.setState({
-      selectedSong: selectedSong
+      selectedSong: selectedSong,
+      chartPosition: parseInt(index)
+
     });
   }
 
 
   render(){
     return (
-      <div>
+      <div className ="song-list">
        <SongList
          songs = {this.state.songs}
          onSongSelected = {this.handleSongSelected}
         />
         <SongDetail
           selectedSong = {this.state.selectedSong}
+          chartPosition = {this.state.chartPosition +1}
         />
         <SongAudio
           selectedSong = {this.state.selectedSong}

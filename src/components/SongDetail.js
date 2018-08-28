@@ -9,7 +9,7 @@ const SongDetail =  function (props) {
 
        <p>Song Title: {props.selectedSong['im:name'].label}</p>
        <p> Artist: {props.selectedSong.title.label}</p>
-       <p> Chart Position: {props.selectedSong.index}</p>
+       <p> Chart Position: {props.chartPosition}</p>
        <p><img src = {props.selectedSong['im:image'][2].label}/></p>
     </div>
   )

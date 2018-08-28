@@ -5,18 +5,14 @@ const SongAudio =  function (props) {
   if(!props.selectedSong) return null
 
   return (
+    <div>
 
+   <p> Sample: </p>
     <ReactAudioPlayer
       src ={props.selectedSong.link[1].attributes.href}
       controls
     />
-
-    /* <div className = "song-item">
-       <audio controls>
-         <source src = {props.selectedSong.link[1].attributes.href} type = "audio/ogg"/>
-       </audio>
-       <hr/>
-    </div> */
+    </div>
   )
 }
 
