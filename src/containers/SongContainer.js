@@ -2,6 +2,7 @@ import React from 'react';
 import SongDetail from '../components/SongDetail.js'
 import SongList from '../components/SongList.js'
 import SongAudio from '../components/SongAudio.js'
+import SongPurchase from '../components/SongPurchase.js'
 
 class SongContainer extends React.Component {
   constructor(props){
@@ -14,7 +15,7 @@ class SongContainer extends React.Component {
     this.handleSongSelected = this.handleSongSelected.bind(this);
   }
   componentDidMount() {
-    const url = 'https://itunes.apple.com/gb/rss/topsongs/limit=20/json'
+    const url = 'https://itunes.apple.com/gb/rss/topsongs/limit=50/json'
     fetch(url)
     .then((res) =>{
       return res.json();
@@ -43,13 +44,20 @@ class SongContainer extends React.Component {
          songs = {this.state.songs}
          onSongSelected = {this.handleSongSelected}
         />
+
         <SongDetail
           selectedSong = {this.state.selectedSong}
           chartPosition = {this.state.chartPosition +1}
         />
+
+        <SongPurchase
+          selectedSong = {this.state.selectedSong}
+        />
+
         <SongAudio
           selectedSong = {this.state.selectedSong}
         />
+
       </div>
     )
   }

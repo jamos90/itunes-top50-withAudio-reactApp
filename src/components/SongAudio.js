@@ -7,7 +7,7 @@ const SongAudio =  function (props) {
   return (
     <div>
 
-   <p> Sample: </p>
+   <p> Audio Sample: </p>
     <ReactAudioPlayer
       src ={props.selectedSong.link[1].attributes.href}
       controls
